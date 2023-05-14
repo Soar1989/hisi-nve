@@ -15,7 +15,7 @@
 /*************************** HEADER FILES ***************************/
 #include <stdlib.h>
 #include <memory.h>
-#include "crypto/sha256.h"
+#include <sha256.h>
 
 /****************************** MACROS ******************************/
 #define ROTLEFT(a,b) (((a) << (b)) | ((a) >> (32-(b))))
@@ -159,6 +159,10 @@ void sha256_final(SHA256_CTX *ctx, BYTE hash[])
 
 
 unsigned char *SHA256(const unsigned char *d, size_t n, unsigned char *md) {
+    if (n != SHA256_BLOCK_SIZE / 2) {
+        return NULL;
+    }
+
 	SHA256_CTX c;
 
 	sha256_init(&c);

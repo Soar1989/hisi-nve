@@ -1,6 +1,10 @@
 # Built binaries
 libs
 obj
+*.o
+
+# Release files
+*.zip
 
 # NVME images
 *.img
@@ -9,3 +13,6 @@ obj
 
 # Mapping tables
 *.h
+
+# (C)Lion
+.idea
